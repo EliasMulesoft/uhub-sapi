@@ -32,7 +32,7 @@
 				<configuration>
 					<sharedLibraries>
 						<sharedLibrary>
-							<groupId>com.mycompany</groupId>
+							<groupId>com.oracle</groupId>
 							<artifactId>ojdbc6</artifactId>
 						</sharedLibrary>
 					</sharedLibraries>
@@ -73,10 +73,10 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>com.mycompany</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>0.1</version>
-		</dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.2.0.4</version>
+	    </dependency>
 	</dependencies>
 
 	<repositories>
@@ -105,4 +105,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
 </project>
