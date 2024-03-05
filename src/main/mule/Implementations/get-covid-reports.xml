@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<flow name="get:\reports:uhub-sapi-config">
+        <ee:transform doc:name="Transform Message">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+[
+  {
+    state: "texas",
+    report: {
+      total: 46744,
+      positive: 436744,
+      recovered: 433744,
+      death: 300,
+      vaccinated: 7847848
+    }
+  }
+]]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+		<ee:transform doc:name="CorrelationID and Input Payload" doc:id="9f79ff69-9dff-4005-907d-6532228a18ad" >
+			<ee:message />
+			<ee:variables >
+				<ee:set-variable variableName="correlationid" ><![CDATA[attributes.headers.'x-correlation-id' default ""]]></ee:set-variable>
+				<ee:set-variable variableName="Inputpayload" ><![CDATA[payload]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Start Log" doc:id="574a0277-de2b-49b4-b4a5-64809889592f" message='transactionId: #[vars.transactionid]], correlationId: #[vars.correlationid], message: Started get reports flow and received query parameter is - #[attributes.queryParams.state]"' />
+		<ee:transform doc:name="Prepare DynamicQuery" doc:id="41215746-1275-4406-a305-ea0adfad4770" >
+			<ee:message />
+			<ee:variables >
+				<ee:set-variable variableName="reportsDynamicQuery" ><![CDATA[if(!isEmpty(attributes.queryParams.state)) (
+	"select count(*) as count, case_type, state from cvd_case_master_new_new where upper(state) = '" ++ upper(attributes.queryParams.state) ++ "' group by case_type, state"
+) else (
+	"select count(*) as count, case_type, state from cvd_case_master_new_new group by case_type, state"
+)]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<flow-ref doc:name="Flow Reference" doc:id="0b5c62cf-444f-4fcc-b276-5918793e5427" name="get-reports-by-state-sub-flow" />
+		<ee:transform doc:name="Prepare Response" doc:id="bcd8899d-bd11-4cb7-8863-01a113d41bcc" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+fun vaccinatedByState(state) = (payload filter(($.STATE == state as String) and ($.CASE_TYPE == "vaccinated")) map {
+	COUNT: $.COUNT
+})[0]
+---
+((payload groupBy($.STATE) mapObject {
+	caseReports: {
+		state: $$,
+		reports: {
+			total: ($.COUNT reduce $ + $$) - (vaccinatedByState($$).COUNT as Number default 0),
+			($ orderBy($.CASE_TYPE) map {
+				($.CASE_TYPE): $.COUNT
+			})
+		}
+	}
+}).*caseReports) default []
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Log" doc:id="dcefc34f-6362-4c4a-bd41-07fc325fac62" message='transactionID: #[vars.transactionId]], correlationID: #[vars.correlationID], message: Completed get reports flow, payload: #[payload]"' />
+    
+</flow>
+	</mule>
