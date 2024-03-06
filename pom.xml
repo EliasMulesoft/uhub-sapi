@@ -16,7 +16,36 @@
 		<app.runtime>4.4.0-20230320</app.runtime>
 		<mule.maven.plugin.version>3.8.2</mule.maven.plugin.version>
 	</properties>
-
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+		        <plugins>
+			        <plugin>
+				        <groupId>org.mule.tools.maven</groupId>
+				        <artifactId>mule-maven-plugin</artifactId>
+				        <version>${mule.maven.plugin.version}</version>
+				        <extensions>true</extensions>
+				        <configuration>
+                                            <cloudHubDeployment>
+                                                <applicationName>temp-dev-uhub-sapi</applicationName>
+                                                <environment>dev</environment>
+                                                <region>us-east-1</region>
+                                                <workers>1</workers>
+                                               <workerType>MICRO</workerType>
+                                               <properties>
+                                                   <env>dev</env>  
+                                                   <api.id>19349021</api.id>
+                                                  <anypoint.platform.client_id>f10738e6551d447fa369cf2b2cd61806</anypoint.platform.client_id>
+                                                  <anypoint.platform.client_secret>76E633184Ed44A57Be896516f7a75BB7</anypoint.platform.client_secret>
+                                               </properties>
+                                            </cloudHubDeployment>
+				        </configuration>
+			        </plugin>
+		        </plugins>    
+	     </build>
+        </profile> 
+    </profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -30,12 +59,18 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<sharedLibraries>
-						<sharedLibrary>
-							<groupId>com.oracle.database.jdbc</groupId>
-							<artifactId>ojdbc6</artifactId>
-						</sharedLibrary>
-					</sharedLibraries>
+				    <cloudHubDeployment>
+                                             <uri>https://anypoint.mulesoft.com</uri>
+                                             <muleVersion>4.4.0-20230320</muleVersion>
+                                             <username>MuleElias5</username>
+                                             <password>Elias885162</password>
+                                             <objectStoreV2>true</objectStoreV2>
+                                             <properties>
+                                                 <http.port>8088</http.port>
+                                                 <anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
+                                                 <anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
+                                             </properties>
+                                    </cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
