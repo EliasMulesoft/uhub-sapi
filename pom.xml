@@ -37,6 +37,7 @@
                                     <env>dev</env>  
                                     <api.id>19349021</api.id>
                                     <enc.key>Elias88516280740</enc.key>
+                                    <http.port>8088</http.port>
                                     <anypoint.platform.client_id>f10738e6551d447fa369cf2b2cd61806</anypoint.platform.client_id>
                                     <anypoint.platform.client_secret>76E633184Ed44A57Be896516f7a75BB7</anypoint.platform.client_secret>
                                 </properties>
