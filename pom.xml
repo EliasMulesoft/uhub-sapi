@@ -15,69 +15,70 @@
 
 		<app.runtime>4.4.0-20230320</app.runtime>
 		<mule.maven.plugin.version>3.8.2</mule.maven.plugin.version>
+		<munit.version>2.3.14</munit.version>
 	</properties>
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <build>
-		        <plugins>
-			        <plugin>
-				        <groupId>org.mule.tools.maven</groupId>
-				        <artifactId>mule-maven-plugin</artifactId>
-				        <version>${mule.maven.plugin.version}</version>
-				        <extensions>true</extensions>
-				        <configuration>
-                            <cloudHubDeployment>
-                                <applicationName>temp-dev-uhub-sapi</applicationName>
-                                <environment>dev</environment>
-                                <region>us-east-1</region>
-                                <workers>1</workers>
-                                <workerType>MICRO</workerType>
-                                <properties>
-                                    <env>dev</env>  
-                                    <api.id>19349021</api.id>
-                                    <enc.key>Elias88516280740</enc.key>
-                                    <http.port>8088</http.port>
-                                    <anypoint.platform.client_id>f10738e6551d447fa369cf2b2cd61806</anypoint.platform.client_id>
-                                    <anypoint.platform.client_secret>76E633184Ed44A57Be896516f7a75BB7</anypoint.platform.client_secret>
-                                </properties>
-                            </cloudHubDeployment>
-				        </configuration>
-			        </plugin>
-		        </plugins>    
-	        </build>
-        </profile> 
-        <profile>
-            <id>test</id>
-            <build>
-		        <plugins>
-			        <plugin>
-				        <groupId>org.mule.tools.maven</groupId>
-				        <artifactId>mule-maven-plugin</artifactId>
-				        <version>${mule.maven.plugin.version}</version>
-				        <extensions>true</extensions>
-				        <configuration>
-                            <cloudHubDeployment>
-                                <applicationName>temp-test-uhub-sapi</applicationName>
-                                <environment>test</environment>
-                                <region>us-east-1</region>
-                                <workers>1</workers>
-                                <workerType>MICRO</workerType>
-                                <properties>
-                                    <env>test</env>  
-                                    <api.id>19349021</api.id>
-                                    <enc.key>Elias88516280740</enc.key>
-                                    <http.port>8089</http.port>
-                                    <anypoint.platform.client_id>b98a40323b9c43a0b7bbc977e4fdcef0</anypoint.platform.client_id>
-                                    <anypoint.platform.client_secret>09C4880cd37d4583b525a0b4A774ED65</anypoint.platform.client_secret>
-                                </properties>
-                            </cloudHubDeployment>
-				        </configuration>
-			        </plugin>
-		        </plugins>    
-	        </build>
-        </profile> 
-    </profiles>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudHubDeployment>
+								<applicationName>temp-dev-uhub-sapi</applicationName>
+								<environment>dev</environment>
+								<region>us-east-1</region>
+								<workers>1</workers>
+								<workerType>MICRO</workerType>
+								<properties>
+									<env>dev</env>
+									<api.id>19349021</api.id>
+									<enc.key>Elias88516280740</enc.key>
+									<http.port>8088</http.port>
+									<anypoint.platform.client_id>f10738e6551d447fa369cf2b2cd61806</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>76E633184Ed44A57Be896516f7a75BB7</anypoint.platform.client_secret>
+								</properties>
+							</cloudHubDeployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>test</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudHubDeployment>
+								<applicationName>temp-test-uhub-sapi</applicationName>
+								<environment>test</environment>
+								<region>us-east-1</region>
+								<workers>1</workers>
+								<workerType>MICRO</workerType>
+								<properties>
+									<env>test</env>
+									<api.id>19349021</api.id>
+									<enc.key>Elias88516280740</enc.key>
+									<http.port>8089</http.port>
+									<anypoint.platform.client_id>b98a40323b9c43a0b7bbc977e4fdcef0</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>09C4880cd37d4583b525a0b4A774ED65</anypoint.platform.client_secret>
+								</properties>
+							</cloudHubDeployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -92,18 +93,41 @@
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
-                            <uri>https://anypoint.mulesoft.com</uri>
-                            <muleVersion>4.4.0-20230320</muleVersion>
-                            <username>MuleElias5</username>
-                            <password>Elias885162</password>
-                            <businessGroup>UHO</businessGroup>
-                            <objectStoreV2>true</objectStoreV2>
-                            <properties>
-                                <http.port>8088</http.port>
-                                <anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
-                                <anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
-                            </properties>
-                        </cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>4.4.0-20230320</muleVersion>
+						<username>MuleElias5</username>
+						<password>Elias885162</password>
+						<businessGroup>UHO</businessGroup>
+						<objectStoreV2>true</objectStoreV2>
+						<properties>
+							<http.port>8088</http.port>
+							<anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
+							<anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
+						</properties>
+					</cloudHubDeployment>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.mulesoft.munit.tools</groupId>
+				<artifactId>munit-maven-plugin</artifactId>
+				<version>${munit.version}</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+							<goal>coverage-report</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<coverage>
+						<runCoverage>true</runCoverage>
+						<formats>
+							<format>html</format>
+						</formats>
+					</coverage>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -140,12 +164,32 @@
 			<version>1.14.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-        <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
-        </dependency>
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.4</version>
+		</dependency>
 
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-runner</artifactId>
+			<version>2.3.14</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-tools</artifactId>
+			<version>2.3.14</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.weave</groupId>
+			<artifactId>assertions</artifactId>
+			<version>1.0.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<repositories>
