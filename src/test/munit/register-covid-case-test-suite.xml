@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="register-covid-case-test-suite.xml" />
+	<munit:test name="register-covid-case-test-suite-post:\cases:application\json:uhub-sapi-configTest" doc:id="13540926-dac4-4a19-9439-87494048c05c" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\cases:application\json:uhub-sapi-config" doc:id="b1876dd5-c630-4705-96b9-20864dc0e278" name="post:\cases:application\json:uhub-sapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<logger level="INFO" doc:name="Logger" doc:id="28d12a54-8a57-48fb-bfd0-4dba4e38a435" message="#[payload]"/>
+			<munit-tools:assert doc:name="Assert expression" doc:id="6623af1a-45d1-451b-a454-6319e6bc2efe" />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
