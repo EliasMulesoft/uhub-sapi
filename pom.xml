@@ -95,6 +95,7 @@
                             <username>MuleElias5</username>
                             <password>Elias885162</password>
                             <businessGroup>UHO</businessGroup>
+                            <http.port>8088</http.port>
                             <objectStoreV2>true</objectStoreV2>
                             <properties>
                                 <http.port>8088</http.port>
