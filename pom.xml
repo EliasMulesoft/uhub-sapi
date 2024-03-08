@@ -66,6 +66,7 @@
                                     <env>test</env>  
                                     <api.id>19349021</api.id>
                                     <enc.key>Elias88516280740</enc.key>
+                                     <http.port>8088</http.port>
                                     <anypoint.platform.client_id>b98a40323b9c43a0b7bbc977e4fdcef0</anypoint.platform.client_id>
                                     <anypoint.platform.client_secret>09C4880cd37d4583b525a0b4A774ED65</anypoint.platform.client_secret>
                                 </properties>
@@ -95,7 +96,6 @@
                             <username>MuleElias5</username>
                             <password>Elias885162</password>
                             <businessGroup>UHO</businessGroup>
-                            <http.port>8088</http.port>
                             <objectStoreV2>true</objectStoreV2>
                             <properties>
                                 <http.port>8088</http.port>
