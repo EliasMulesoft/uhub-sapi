@@ -64,7 +64,7 @@
                             <muleVersion>4.4.0-20230320</muleVersion>
                             <username>MuleElias5</username>
                             <password>Elias885162</password>
-                            <businessGroup>TTBC/UHO</businessGroup>
+                            <businessGroup>UHO</businessGroup>
                             <objectStoreV2>true</objectStoreV2>
                             <properties>
                                 <http.port>8088</http.port>
