@@ -38,9 +38,9 @@ output application/json
 			<ee:message />
 			<ee:variables >
 				<ee:set-variable variableName="reportsDynamicQuery" ><![CDATA[if(!isEmpty(attributes.queryParams.state)) (
-	"select count(*) as count, case_type, state from cvd_case_master_new_new where upper(state) = '" ++ upper(attributes.queryParams.state) ++ "' group by case_type, state"
+	"select count(*) as count, case_type, state from cvd_case_master_new_new_new where upper(state) = '" ++ upper(attributes.queryParams.state) ++ "' group by case_type, state"
 ) else (
-	"select count(*) as count, case_type, state from cvd_case_master_new_new group by case_type, state"
+	"select count(*) as count, case_type, state from cvd_case_master_new_new_new group by case_type, state"
 )]]></ee:set-variable>
 			</ee:variables>
 		</ee:transform>
