@@ -1,9 +1,9 @@
 http:
-  port: "8088"
+  port: "8091"
 db:
   uhub:
-    host: "localhost"
-    port: "1521"
-    username: "system"
-    password: "oWqwI1dn89d97DSd75s/6A=="
+    host: "oracle-166771-0.cloudclusters.net"
+    port: "10016"
+    username: "uhubdevtestelias"
+    password: "Elias885162"
     service: "XE"

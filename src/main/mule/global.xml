@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
 http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
 	 <http:listener-config name="uhub-sapi-httpListenerConfig" basePath="covid">
-        <http:listener-connection host="0.0.0.0" port="${secure::http.port}" />
+        <http:listener-connection host="localhost" port="${secure::http.port}" />
     </http:listener-config>
     <apikit:config name="uhub-sapi-config" api="uhub-sapi.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
 	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="ea4a1b02-a2f6-4971-9702-1c53a6d62521" file="${env}.yaml" key="${enc.key}"/>

@@ -38,9 +38,9 @@
 									<env>dev</env>
 									<api.id>19349021</api.id>
 									<enc.key>Elias88516280740</enc.key>
-									<http.port>8088</http.port>
-									<anypoint.platform.client_id>4ddb6bac6fb04f42b65b11f19f743606</anypoint.platform.client_id>
-									<anypoint.platform.client_secret>fe9F2473956D4f159FC38FDa98F2C271</anypoint.platform.client_secret>
+									<http.port>8091</http.port>
+									<anypoint.platform.client_id>f10738e6551d447fa369cf2b2cd61806</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>76E633184Ed44A57Be896516f7a75BB7</anypoint.platform.client_secret>
 								</properties>
 							</cloudHubDeployment>
 						</configuration>
@@ -66,9 +66,9 @@
 								<workerType>MICRO</workerType>
 								<properties>
 									<env>test</env>
-									<api.id>19349021</api.id>
+									<api.id>19378034</api.id>
 									<enc.key>Elias88516280740</enc.key>
-									<http.port>8089</http.port>
+									<http.port>8091</http.port>
 									<anypoint.platform.client_id>b98a40323b9c43a0b7bbc977e4fdcef0</anypoint.platform.client_id>
 									<anypoint.platform.client_secret>09C4880cd37d4583b525a0b4A774ED65</anypoint.platform.client_secret>
 								</properties>
@@ -95,12 +95,12 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.4.0-20230320</muleVersion>
-						<username>MuleElias7</username>
+						<username>MuleElias5</username>
 						<password>Elias885162</password>
 						<businessGroup>UHO</businessGroup>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<http.port>8088</http.port>
+							<http.port>8091</http.port>
 							<anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
 							<anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
 						</properties>
