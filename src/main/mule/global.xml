@@ -18,6 +18,6 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 	<db:config name="Database_Config1" doc:name="Database Config" doc:id="07faa6c8-d454-4a15-a54d-e39d9d22e23c" >
 		<db:oracle-connection host="${secure::db.uhub.host}" port="${secure::db.uhub.port}" user="${secure::db.uhub.username}" password="${secure::db.uhub.password}" instance="${secure::db.uhub.service}" />
 	</db:config>
-	<api-gateway:autodiscovery apiId="19349021" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="d4bb83a6-77c6-44eb-b88e-8e20eb5236c1" flowRef="uhub-sapi-main" />
+	<api-gateway:autodiscovery apiId="19378034" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="d4bb83a6-77c6-44eb-b88e-8e20eb5236c1" flowRef="uhub-sapi-main" />
 	
 </mule>
