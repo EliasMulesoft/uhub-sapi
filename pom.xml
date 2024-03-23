@@ -38,7 +38,7 @@
 									<env>dev</env>
 									<api.id>19380173</api.id>
 									<enc.key>Elias88516280740</enc.key>
-									<http.port>8091</http.port>
+									<http.port>8081</http.port>
 									<anypoint.platform.client_id>4ddb6bac6fb04f42b65b11f19f743606</anypoint.platform.client_id>
 									<anypoint.platform.client_secret>fe9F2473956D4f159FC38FDa98F2C271</anypoint.platform.client_secret>
 								</properties>
@@ -68,7 +68,7 @@
 									<env>test</env>
 									<api.id>19380203</api.id>
 									<enc.key>Elias88516280740</enc.key>
-									<http.port>8091</http.port>
+									<http.port>8081</http.port>
 									<anypoint.platform.client_id>87950a7b0cc944ca9f31138fa5b91468</anypoint.platform.client_id>
 									<anypoint.platform.client_secret>d07023Ec78764666bC72Fa786ae4B70A</anypoint.platform.client_secret>
 								</properties>
@@ -100,7 +100,7 @@
 						<businessGroup>UHO</businessGroup>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<http.port>8091</http.port>
+							<http.port>8081</http.port>
 							<anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
 							<anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
 						</properties>
